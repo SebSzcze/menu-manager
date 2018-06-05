@@ -1,0 +1,16 @@
+{
+    "name": "lari/menu-manager",
+    "description": "Simple menu manager",
+    "type": "library",
+    "require": {
+        "lari/simple-repo": "0.0.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Szczepanski",
+            "email": "sebastian@ably.pl"
+        }
+    ],
+    "minimum-stability": "dev"
+}
