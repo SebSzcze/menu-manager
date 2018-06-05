@@ -1,0 +1,26 @@
+{
+    "name": "lari/menu-manager",
+    "description": "Simple menu manager",
+    "type": "library",
+    "require": {
+        "lari/simple-repo": "0.0.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Szczepanski",
+            "email": "sebastian@ably.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lari\\MenuManager\\": "src/"
+        }
+    },
+    "extra": {
+      "providers": [
+          "Lari\\MenuManager\\MenuManagerServiceProvider"
+      ]
+    },
+    "minimum-stability": "dev"
+}
