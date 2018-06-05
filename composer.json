@@ -12,5 +12,15 @@
             "email": "sebastian@ably.pl"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Lari\\MenuManager\\": "src/"
+        }
+    },
+    "extra": {
+      "providers": [
+          "Lari\\MenuManager\\MenuManagerServiceProvider"
+      ]
+    },
     "minimum-stability": "dev"
 }
