@@ -19,6 +19,8 @@ class MenuManagerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadViewsFrom(__DIR__.'/../views', 'menumanager');
+
         $this->publishes([
             __DIR__.'/../config/menu.php' => config_path('menu.php'),
         ], 'config');

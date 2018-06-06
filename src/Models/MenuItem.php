@@ -9,5 +9,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class MenuItem extends Model
 {
-    //
+    protected $guarded = [];
+
+    /**
+     * Items
+     * Define a relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function items()
+    {
+        return $this->hasMany(MenuItem::class)->whereNull('parent_id');
+    }
 }

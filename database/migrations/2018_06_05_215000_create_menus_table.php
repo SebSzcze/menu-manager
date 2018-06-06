@@ -18,6 +18,7 @@ class CreateMenusTable extends Migration
             $table->string('name');
             $table->unsignedInteger('slot_id')->index()->nullable();
             $table->string('header')->nullable();
+            $table->string('can')->nullable();
             $table->boolean('is_available')->default(0);
             $table->timestamp('available_at')->nullable();
             $table->timestamp('expires_at')->nullable();

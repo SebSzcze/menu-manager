@@ -3,6 +3,7 @@
 namespace Lari\MenuManager\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Lari\MenuManager\Renders\MenuRender;
 
 /**
  * @author    Sebastian Szczepański
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class MenuSlot extends Model
 {
-    protected $guard = [];
+    protected $guarded = [];
 
     /**
      * Menu
@@ -20,7 +21,7 @@ class MenuSlot extends Model
      */
     public function menus()
     {
-        return $this->hasMany(Menu::class);
+        return $this->hasMany(Menu::class, 'slot_id');
     }
 
     /**
@@ -31,14 +32,29 @@ class MenuSlot extends Model
      */
     public function menu()
     {
-        return $this->menu()->active()->first();
+        return $this->hasOne(Menu::class, 'slot_id')
+                    ->active();
     }
 
     /**
      * @return bool
      */
-    public function hasMenu(): bool
+    public function isFilled(): bool
     {
         return !!$this->menu;
+    }
+
+    /**
+     * @param string $key
+     * @return Menu|null
+     */
+    public static function byKey(string $key): ?MenuSlot
+    {
+        return static::where('key', '=', $key)->first();
+    }
+
+    public function render()
+    {
+        return new MenuRender($this);
     }
 }
