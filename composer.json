@@ -15,12 +15,15 @@
     "autoload": {
         "psr-4": {
             "Lari\\MenuManager\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "extra": {
       "providers": [
           "Lari\\MenuManager\\MenuManagerServiceProvider"
       ]
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
