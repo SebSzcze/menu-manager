@@ -8,7 +8,11 @@ namespace Lari\MenuManager\Renders;
  */
 abstract class AbstractRender
 {
-    public function __get($name)
+    /**
+     * @param string $name
+     * @return mixed
+     */
+    public function __get(string $name)
     {
         $methodName = 'get'.ucfirst($name);
 
