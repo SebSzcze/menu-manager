@@ -29,4 +29,15 @@ class Menu extends Model
                       ->orWhereNull('available_at');
             });
     }
+
+    /**
+     * Items
+     * Define a relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function items()
+    {
+        return $this->hasMany(MenuItem::class)->whereNull('parent_id');
+    }
 }

@@ -9,7 +9,7 @@ use Lari\MenuManager\Models\Menu as MenuModel;
  * @author    Sebastian Szczepański
  * @copyright ably
  */
-class MenuRender
+class MenuRender extends AbstractRender
 {
     /**
      * @var MenuSlot
@@ -19,7 +19,7 @@ class MenuRender
     /**
      * @var MenuModel
      */
-    private $menu;
+    protected $model;
 
     /**
      * @param MenuSlot $slot
@@ -27,16 +27,16 @@ class MenuRender
     public function __construct(MenuSlot $slot)
     {
         $this->slot = $slot;
-        $this->menu = $slot->menu;
+        $this->model = $slot->menu;
     }
 
     public function getHeader()
     {
-        return $this->menu->header ?: $this->slot->header;
+        return $this->model->header ?: $this->slot->header;
     }
 
     public function getItems()
     {
-        return $this->menu->items ?: [];
+        return $this->model->items ?: [];
     }
 }
