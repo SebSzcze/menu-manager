@@ -21,9 +21,11 @@
         ]
     },
     "extra": {
-      "providers": [
-          "Lari\\MenuManager\\MenuManagerServiceProvider"
-      ]
+        "laravel": {
+            "providers": [
+              "Lari\\MenuManager\\MenuManagerServiceProvider"
+            ]
+        }
     },
     "minimum-stability": "stable"
 }
