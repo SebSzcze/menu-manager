@@ -3,9 +3,14 @@
 namespace Lari\MenuManager;
 
 use Illuminate\Support\ServiceProvider;
+use Lari\MenuManager\Commands\BuildMenuSlotsCommand;
 
 class MenuManagerServiceProvider extends ServiceProvider
 {
+    const COMMANDS = [
+        BuildMenuSlotsCommand::class,
+    ];
+
     /**
      * Bootstrap services.
      *
@@ -15,8 +20,13 @@ class MenuManagerServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->publishes([
-            __DIR__.'/../config/menu.php' => config_path('menu.php')
+            __DIR__.'/../config/menu.php' => config_path('menu.php'),
         ], 'config');
+
+        if ($this->app->runningInConsole()) {
+//            dump('jest');die();
+            $this->commands(static::COMMANDS);
+        }
     }
 
     /**
