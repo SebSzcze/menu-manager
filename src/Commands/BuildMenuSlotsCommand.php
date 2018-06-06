@@ -18,7 +18,7 @@ class BuildMenuSlotsCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Creates menu slots';
 
     /**
      * Create a new command instance.
