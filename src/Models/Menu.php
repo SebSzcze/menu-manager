@@ -9,5 +9,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Menu extends Model
 {
-    //
+    protected $guarded = [];
+
+    public function scopeActive($query)
+    {
+        $now = now();
+
+        $query->where([
+            ['is_available', '=', 1],
+            ['available_at', '<', $now ],
+            ['expires_at', '>', $now],
+        ]);
+    }
 }
