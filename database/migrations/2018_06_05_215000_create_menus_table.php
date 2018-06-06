@@ -16,8 +16,11 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('position')->nullable();
+            $table->unsignedInteger('slot_id')->index()->nullable();
             $table->string('header')->nullable();
+            $table->boolean('is_available')->default(0);
+            $table->timestamp('available_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
             $table->timestamps();
         });
     }
