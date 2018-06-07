@@ -3,6 +3,8 @@
 namespace Lari\MenuManager\Commands;
 
 use Illuminate\Console\Command;
+use Lari\MenuManager\Models\Menu;
+use Lari\MenuManager\Models\MenuSlot;
 
 class BuildMenuSlotsCommand extends Command
 {
@@ -11,7 +13,7 @@ class BuildMenuSlotsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'menu:slots:build';
+    protected $signature = 'menu:slots:build {--m|menu=false} {--t|truncate=false}';
 
     /**
      * The console command description.
@@ -37,6 +39,36 @@ class BuildMenuSlotsCommand extends Command
      */
     public function handle()
     {
-        //
+        $this->truncate();
+        foreach (config('menu.slots', []) as $slot) {
+            $model = MenuSlot::firstOrCreate([
+                'key' => $slot,
+            ]);
+            $this->info(sprintf('Processed slot: %s', $slot));
+
+            $this->createMenuForSlot($model);
+        }
+    }
+
+    private function createMenuForSlot($slot)
+    {
+        if ($this->option('menu') === false) {
+            return;
+        }
+
+        $slot->menus()->create([
+            'name'         => ucfirst($slot->key),
+            'is_available' => true,
+        ]);
+    }
+
+    private function truncate()
+    {
+        if ($this->option('truncate') === false) {
+            return;
+        }
+
+        MenuSlot::truncate();
+        Menu::truncate();
     }
 }

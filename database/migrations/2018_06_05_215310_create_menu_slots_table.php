@@ -16,9 +16,10 @@ class CreateMenuSlotsTable extends Migration
         Schema::create('menu_slots', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->string('key')->nullable()->index();
+            $table->string('key')->nullable()->index()->unique();
             $table->string('description')->nullable();
             $table->string('header')->nullable();
+            $table->string('can')->nullable();
             $table->timestamps();
         });
     }

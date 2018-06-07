@@ -3,6 +3,7 @@
     "description": "Simple menu manager",
     "type": "library",
     "require": {
+        "php": "^7.1",
         "lari/simple-repo": "0.0.1"
     },
     "license": "MIT",
@@ -14,7 +15,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Lari\\MenuManager\\": "src/"
+            "Lari\\MenuManager\\": "src/",
+            "Lari\\MenuManager\\Seeds\\": "database/seeds"
         },
         "files": [
             "src/helpers.php"

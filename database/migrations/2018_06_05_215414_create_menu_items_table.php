@@ -21,6 +21,8 @@ class CreateMenuItemsTable extends Migration
             $table->boolean('is_blank')->default(0);
             $table->string('entity_type')->nullable();
             $table->string('entity_id')->nullable();
+            $table->unsignedInteger('parent_id')->nullable()->index();
+            $table->unsignedInteger('menu_id')->nullable()->index();
             $table->index(['entity_type', 'entity_id']);
             $table->timestamps();
         });
