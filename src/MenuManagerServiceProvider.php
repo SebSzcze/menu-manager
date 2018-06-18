@@ -26,7 +26,6 @@ class MenuManagerServiceProvider extends ServiceProvider
         ], 'config');
 
         if ($this->app->runningInConsole()) {
-//            dump('jest');die();
             $this->commands(static::COMMANDS);
         }
     }
