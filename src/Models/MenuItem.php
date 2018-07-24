@@ -11,10 +11,10 @@ use Lari\MenuManager\Renders\MenuItemRender;
  */
 class MenuItem extends Model
 {
+
     const BASE_VIEW_KEY = 'item';
     const SPACER_KEY = 'Spacer';
     const SPACER_VIEW_KEY = 'spacer';
-
 
     protected $guarded = [];
     protected $with = ['items'];
@@ -48,6 +48,7 @@ class MenuItem extends Model
     /**
      * @return MenuItemRender
      */
+
     public function render()
     {
         return new MenuItemRender($this);
