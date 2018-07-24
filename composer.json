@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": "^7.1",
-        "lari/simple-repo": "0.0.1"
+        "lari/simple-repo": "*"
     },
     "license": "MIT",
     "authors": [

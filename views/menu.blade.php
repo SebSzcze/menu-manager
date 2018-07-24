@@ -4,6 +4,6 @@
 
 <ul>
     @foreach($menu->getItems() as $item)
-        @include('menumanager::item', ['item' => $item->render() ])
+        @include('menumanager::'.$item->view, ['item' => $item->render() ])
     @endforeach 
 </ul>

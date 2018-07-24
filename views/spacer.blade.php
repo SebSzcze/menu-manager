@@ -1,0 +1,1 @@
+<li class="spacer {{ $item->class ?? '' }}">|</li>

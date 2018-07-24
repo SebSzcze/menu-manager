@@ -30,13 +30,19 @@ class MenuRender extends AbstractRender
         $this->model = $slot->menu;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getHeader()
     {
-        return $this->model->header ?: $this->slot->header;
+        return $this->model->header ?? $this->slot->header ?? '';
     }
 
+    /**
+     * @return array|mixed
+     */
     public function getItems()
     {
-        return $this->model->items ?: [];
+        return $this->model->items ?? [];
     }
 }
